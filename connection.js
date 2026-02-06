@@ -536,7 +536,8 @@ function saveTheExperience() {
 // Send a message
 function sendAMessage() {
     console.log("Opening message composer...");
-// Create copy modal
+
+    // Create copy modal
 function createCopyModal() {
     const modal = document.createElement('div');
     modal.className = 'copy-modal';

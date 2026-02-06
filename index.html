@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Someone Wants You To Know...</title>
+    <link rel="stylesheet" href="attraction.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&family=Caveat:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Mystery Opener -->
+    <div class="mystery-opener" id="mysteryOpener">
+        <div class="mystery-box">
+            <div class="glowing-orb">
+                <i class="fas fa-question"></i>
+            </div>
+            <h1 class="mystery-title">Curiosity Message</h1>
+            <p class="mystery-subtitle">Someone has something important to tell you</p>
+            
+            <button class="reveal-btn" id="revealBtn">
+                <i class="fas fa-eye"></i>
+                Discover The Message
+            </button>
+            
+            <div class="sparkle-text">
+                <i class="fas fa-sparkles"></i>
+                This might change everything
+                <i class="fas fa-sparkles"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Experience -->
+    <div class="main-experience hidden" id="mainExperience">
+        <!-- Step 1: The Attention -->
+        <div class="step active" id="step1">
+            <div class="step-content">
+                <div class="attention-header">
+                    <div class="pulse-circle"></div>
+                    <h1>You've Been Noticed</h1>
+                    <p class="subtitle">And it's not by just anyone...</p>
+                </div>
+                
+                <div class="qualities-showcase">
+                    <div class="quality-card" data-quality="1">
+                        <div class="quality-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h3>Your Energy</h3>
+                        <p>The way you light up a room doesn't go unnoticed</p>
+                    </div>
+                    
+                    <div class="quality-card" data-quality="2">
+                        <div class="quality-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3>Your Kindness</h3>
+                        <p>Small acts of kindness that make a big difference</p>
+                    </div>
+                    
+                    <div class="quality-card" data-quality="3">
+                        <div class="quality-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3>Your Mind</h3>
+                        <p>The way you think fascinates someone special</p>
+                    </div>
+                </div>
+                
+                <button class="next-step-btn" id="nextStep1">
+                    <i class="fas fa-arrow-right"></i>
+                    Continue The Discovery
+                </button>
+                
+                <div class="whisper-text">
+                    <i class="fas fa-volume-low"></i>
+                    "I've been wanting to tell you this..."
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 2: The Connection -->
+        <div class="step hidden" id="step2">
+            <div class="step-content">
+                <div class="connection-header">
+                    <h2>Unspoken Connections</h2>
+                    <p>Moments that mattered more than you realized</p>
+                </div>
+                
+                <div class="connection-timeline">
+                    <div class="timeline-item left">
+                        <div class="timeline-marker">
+                            <i class="fas fa-comment"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h4>That Conversation</h4>
+                            <p>Remember when we talked about dreams? Your passion was inspiring</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item right">
+                        <div class="timeline-marker">
+                            <i class="fas fa-laugh"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h4>Your Laughter</h4>
+                            <p>That genuine laugh of yours - it's someone's favorite sound</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item left">
+                        <div class="timeline-marker">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h4>Your Perspective</h4>
+                            <p>The way you see the world is unique and refreshing</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item right">
+                        <div class="timeline-marker">
+                            <i class="fas fa-hand-holding-heart"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h4>Your Presence</h4>
+                            <p>Being around you feels... different. In a good way</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="connection-quote">
+                    <i class="fas fa-quote-left"></i>
+                    <p>"Sometimes the best connections are the ones we don't see coming"</p>
+                    <i class="fas fa-quote-right"></i>
+                </div>
+                
+                <button class="next-step-btn" id="nextStep2">
+                    <i class="fas fa-user-secret"></i>
+                    Who Is This About?
+                </button>
+            </div>
+        </div>
+
+        <!-- Step 3: The Clues -->
+        <div class="step hidden" id="step3">
+            <div class="step-content">
+                <div class="clue-header">
+                    <h2>Putting The Pieces Together</h2>
+                    <p>Here are some clues about who's been noticing you...</p>
+                </div>
+                
+                <div class="clues-container">
+                    <div class="clue" data-clue="1">
+                        <div class="clue-number">01</div>
+                        <div class="clue-text">
+                            <h4>They're In Your Circle</h4>
+                            <p>Someone you interact with regularly</p>
+                        </div>
+                    </div>
+                    
+                    <div class="clue" data-clue="2">
+                        <div class="clue-number">02</div>
+                        <div class="clue-text">
+                            <h4>Shared Moments</h4>
+                            <p>They remember little things you've said</p>
+                        </div>
+                    </div>
+                    
+                    <div class="clue" data-clue="3">
+                        <div class="clue-number">03</div>
+                        <div class="clue-text">
+                            <h4>Genuine Interest</h4>
+                            <p>They care about what you care about</p>
+                        </div>
+                    </div>
+                    
+                    <div class="clue" data-clue="4">
+                        <div class="clue-number">04</div>
+                        <div class="clue-text">
+                            <h4>Growing Feelings</h4>
+                            <p>What started as friendship grew into more</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="interactive-clue">
+                    <h3><i class="fas fa-search"></i> Interactive Clue</h3>
+                    <p>Click to reveal more about this person...</p>
+                    <div class="clue-reveal" id="clueReveal">
+                        <!-- Clues will appear here -->
+                    </div>
+                    
+                    <div class="clue-buttons">
+                        <button class="clue-btn" id="revealClueBtn">
+                            <i class="fas fa-key"></i>
+                            Reveal Another Clue
+                        </button>
+                    </div>
+                </div>
+                
+                <button class="next-step-btn" id="nextStep3">
+                    <i class="fas fa-user-check"></i>
+                    Ready To Know?
+                </button>
+            </div>
+        </div>
+
+        <!-- Step 4: The Reveal -->
+        <div class="step hidden" id="step4">
+            <div class="step-content">
+                <div class="reveal-countdown" id="revealCountdown">
+                    <div class="countdown-text">Revealing in...</div>
+                    <div class="countdown-numbers">
+                        <span class="count-number">3</span>
+                        <span class="count-number">2</span>
+                        <span class="count-number">1</span>
+                    </div>
+                </div>
+                
+                <div class="big-reveal hidden" id="bigReveal">
+                    <div class="reveal-card">
+                        <div class="reveal-header">
+                            <div class="reveal-icon">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <h1>It's Me</h1>
+                            <p class="reveal-subtitle">(The one showing you this)</p>
+                        </div>
+                        
+                        <div class="confession-section">
+                            <h3>Here's The Truth:</h3>
+                            
+                            <div class="confession-points">
+                                <div class="confession-point">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>I notice things about you that others don't</span>
+                                </div>
+                                <div class="confession-point">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>I genuinely enjoy our conversations</span>
+                                </div>
+                                <div class="confession-point">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>I think you're someone special</span>
+                                </div>
+                                <div class="confession-point">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>I'd like to get to know you better</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="proposal-section">
+                            <h3>My Simple Ask:</h3>
+                            <p>Would you be open to exploring this connection?</p>
+                            
+                            <div class="connection-options">
+                                <div class="option-card" data-option="coffee">
+                                    <i class="fas fa-mug-hot"></i>
+                                    <h4>Casual Coffee</h4>
+                                    <p>Low-pressure chat</p>
+                                </div>
+                                <div class="option-card" data-option="walk">
+                                    <i class="fas fa-walking"></i>
+                                    <h4>Walk & Talk</h4>
+                                    <p>Fresh air conversation</p>
+                                </div>
+                                <div class="option-card" data-option="virtual">
+                                    <i class="fas fa-video"></i>
+                                    <h4>Virtual Hang</h4>
+                                    <p>Comfortable distance</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="response-section">
+                            <h3>Your Response:</h3>
+                            <div class="response-buttons">
+                                <button class="response-btn yes-btn" id="yesBtn">
+                                    <i class="fas fa-heart"></i>
+                                    <span>I'm Interested</span>
+                                    <div class="sparkle-effect">✨</div>
+                                </button>
+                                
+                                <button class="response-btn maybe-btn" id="maybeBtn">
+                                    <i class="fas fa-clock"></i>
+                                    <span>Let Me Think</span>
+                                </button>
+                                
+                                <button class="response-btn friend-btn" id="friendBtn">
+                                    <i class="fas fa-users"></i>
+                                    <span>Just Friends</span>
+                                </button>
+                            </div>
+                            
+                            <p class="no-pressure">No pressure, just honesty. Whatever you choose, I appreciate you.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 5: The Aftermath -->
+        <div class="step hidden" id="step5">
+            <div class="step-content">
+                <div class="aftermath-container">
+                    <div class="celebration-animation" id="celebrationAnimation">
+                        <!-- Celebration effects go here -->
+                    </div>
+                    
+                    <h1 class="aftermath-title">
+                        <i class="fas fa-handshake"></i>
+                        Thank You For Your Honesty
+                    </h1>
+                    
+                    <div class="aftermath-message" id="aftermathMessage">
+                        <!-- Dynamic message based on response -->
+                    </div>
+                    
+                    <div class="next-steps-guide">
+                        <h3><i class="fas fa-road"></i> What Happens Next?</h3>
+                        
+                        <div class="steps-timeline">
+                            <div class="step-guide">
+                                <div class="guide-number">1</div>
+                                <div class="guide-content">
+                                    <h4>I'll Reach Out</h4>
+                                    <p>I'll message you in the next day</p>
+                                </div>
+                            </div>
+                            
+                            <div class="step-guide">
+                                <div class="guide-number">2</div>
+                                <div class="guide-content">
+                                    <h4>We'll Talk</h4>
+                                    <p>Casual, comfortable conversation</p>
+                                </div>
+                            </div>
+                            
+                            <div class="step-guide">
+                                <div class="guide-number">3</div>
+                                <div class="guide-content">
+                                    <h4>See Where It Goes</h4>
+                                    <p>No expectations, just connection</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="final-thoughts">
+                        <div class="thought-bubble">
+                            <i class="fas fa-comment-dots"></i>
+                            <p>"Whatever happens, I'm glad I told you how I feel. You deserve to know when someone sees how amazing you are."</p>
+                        </div>
+                        
+                        <div class="signature">
+                            - Someone who took a chance
+                        </div>
+                    </div>
+                    
+                    <div class="final-actions">
+                        <button class="action-btn" id="saveExperience">
+                            <i class="fas fa-bookmark"></i>
+                            Save This Memory
+                        </button>
+                        
+                        <button class="action-btn" id="sendMessage">
+                            <i class="fas fa-paper-plane"></i>
+                            Send Me A Message
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Progress Indicator -->
+    <div class="progress-container">
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <div class="step-indicators">
+            <div class="step-indicator active" data-step="1">1</div>
+            <div class="step-indicator" data-step="2">2</div>
+            <div class="step-indicator" data-step="3">3</div>
+            <div class="step-indicator" data-step="4">4</div>
+            <div class="step-indicator" data-step="5">5</div>
+        </div>
+    </div>
+
+    <!-- Music Control -->
+    <div class="music-control">
+        <button class="music-btn" id="musicBtn">
+            <i class="fas fa-music"></i>
+            <span>Ambient Music</span>
+        </button>
+        <audio id="backgroundMusic" loop>
+            <source src="https://assets.mixkit.co/music/preview/mixkit-deep-urban-623.mp3" type="audio/mp3">
+        </audio>
+    </div>
+
+    <!-- Effects Container -->
+    <div id="effectsContainer"></div>
+
+    <script src="connection.js"></script>
+</body>
+</html>

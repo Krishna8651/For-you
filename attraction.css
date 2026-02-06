@@ -1,0 +1,1037 @@
+/* She Will Like Me - Attraction Builder */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+    color: #ffffff;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Background Effects */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 30%, rgba(120, 119, 198, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(255, 119, 198, 0.1) 0%, transparent 50%);
+    z-index: -2;
+}
+
+/* Mystery Opener */
+.mystery-opener {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #0f0c29, #302b63);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transition: opacity 1s ease;
+}
+
+.mystery-box {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 25px;
+    padding: 3rem;
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.3),
+        0 0 100px rgba(120, 119, 198, 0.2);
+    animation: floatBox 6s ease-in-out infinite;
+}
+
+@keyframes floatBox {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+.glowing-orb {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(45deg, #7877c6, #ff77c6);
+    border-radius: 50%;
+    margin: 0 auto 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: white;
+    animation: pulseGlow 2s infinite;
+    box-shadow: 0 0 50px rgba(120, 119, 198, 0.5);
+}
+
+@keyframes pulseGlow {
+    0%, 100% { 
+        box-shadow: 0 0 50px rgba(120, 119, 198, 0.5);
+        transform: scale(1);
+    }
+    50% { 
+        box-shadow: 0 0 80px rgba(255, 119, 198, 0.7);
+        transform: scale(1.05);
+    }
+}
+
+.mystery-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, #7877c6, #ff77c6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.mystery-subtitle {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 2rem;
+}
+
+.reveal-btn {
+    padding: 1rem 2.5rem;
+    font-size: 1.2rem;
+    background: linear-gradient(45deg, #7877c6, #ff77c6);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin: 1rem auto;
+    font-weight: 600;
+    box-shadow: 0 5px 20px rgba(120, 119, 198, 0.3);
+}
+
+.reveal-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(120, 119, 198, 0.5);
+}
+
+.reveal-btn:active {
+    transform: translateY(-1px);
+}
+
+.sparkle-text {
+    margin-top: 2rem;
+    color: rgba(255, 255, 255, 0.5);
+    font-style: italic;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Hidden Class */
+.hidden {
+    display: none !important;
+}
+
+/* Main Experience */
+.main-experience {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Step Content */
+.step {
+    display: none;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s ease;
+}
+
+.step.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.step-content {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 25px;
+    padding: 3rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Step 1: Attention */
+.attention-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.pulse-circle {
+    width: 150px;
+    height: 150px;
+    border: 3px solid rgba(120, 119, 198, 0.3);
+    border-radius: 50%;
+    margin: 0 auto 2rem;
+    position: relative;
+    animation: pulseCircle 3s infinite;
+}
+
+.pulse-circle::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    background: #ff77c6;
+    border-radius: 50%;
+    box-shadow: 0 0 20px #ff77c6;
+}
+
+@keyframes pulseCircle {
+    0% { 
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% { 
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
+
+.attention-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+.subtitle {
+    font-size: 1.3rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.qualities-showcase {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.quality-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.quality-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(120, 119, 198, 0.3);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.quality-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.quality-card:hover::before {
+    left: 100%;
+}
+
+.quality-icon {
+    font-size: 2.5rem;
+    color: #7877c6;
+    margin-bottom: 1rem;
+}
+
+.quality-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.quality-card p {
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+}
+
+.whisper-text {
+    text-align: center;
+    margin-top: 2rem;
+    color: rgba(255, 255, 255, 0.5);
+    font-style: italic;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Step 2: Connection */
+.connection-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.connection-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+.connection-header p {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.connection-timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 3rem auto;
+}
+
+.connection-timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, transparent, #7877c6, transparent);
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    display: flex;
+    margin-bottom: 3rem;
+    position: relative;
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: all 0.8s ease;
+}
+
+.timeline-item.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.timeline-item.left {
+    justify-content: flex-start;
+    padding-right: 50%;
+}
+
+.timeline-item.right {
+    justify-content: flex-end;
+    padding-left: 50%;
+    transform: translateX(50px);
+}
+
+.timeline-item.right.visible {
+    transform: translateX(0);
+}
+
+.timeline-marker {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 40px;
+    background: #7877c6;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: white;
+    z-index: 2;
+    box-shadow: 0 0 20px rgba(120, 119, 198, 0.5);
+}
+
+.timeline-content {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    max-width: 350px;
+}
+
+.timeline-content h4 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+.timeline-content p {
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+}
+
+.connection-quote {
+    text-align: center;
+    margin: 3rem auto;
+    padding: 2rem;
+    max-width: 600px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    border-left: 4px solid #7877c6;
+}
+
+.connection-quote p {
+    font-size: 1.3rem;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+}
+
+.connection-quote i {
+    color: #7877c6;
+    font-size: 1.5rem;
+    margin: 0 10px;
+}
+
+/* Step 3: Clues */
+.clue-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.clue-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+.clue-header p {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.clues-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 3rem 0;
+}
+
+.clue {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.clue:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: #7877c6;
+    transform: translateY(-5px);
+}
+
+.clue-number {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #7877c6;
+    min-width: 60px;
+}
+
+.clue-text h4 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+.clue-text p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+}
+
+.interactive-clue {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 20px;
+    margin: 3rem 0;
+    border: 2px dashed #7877c6;
+    text-align: center;
+}
+
+.interactive-clue h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.clue-reveal {
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.9);
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    margin: 1rem 0;
+}
+
+.clue-buttons {
+    margin-top: 1.5rem;
+}
+
+.clue-btn {
+    padding: 0.8rem 1.5rem;
+    background: linear-gradient(45deg, #7877c6, #ff77c6);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.clue-btn:hover {
+    transform: scale(1.05);
+}
+
+/* Step 4: Reveal */
+.reveal-countdown {
+    text-align: center;
+    margin: 3rem 0;
+}
+
+.countdown-text {
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 1rem;
+}
+
+.countdown-numbers {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.count-number {
+    font-size: 4rem;
+    font-weight: bold;
+    color: #ff77c6;
+    animation: countdownPulse 1s infinite;
+    text-shadow: 0 0 30px rgba(255, 119, 198, 0.5);
+}
+
+@keyframes countdownPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+.big-reveal {
+    animation: fadeIn 1s ease;
+}
+
+.reveal-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 25px;
+    padding: 3rem;
+    border: 2px solid rgba(120, 119, 198, 0.3);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.reveal-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.reveal-icon {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(45deg, #7877c6, #ff77c6);
+    border-radius: 50%;
+    margin: 0 auto 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: white;
+    box-shadow: 0 0 50px rgba(120, 119, 198, 0.5);
+}
+
+.reveal-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+.reveal-subtitle {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-style: italic;
+}
+
+.confession-section {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 20px;
+    margin: 2rem 0;
+}
+
+.confession-section h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: white;
+    text-align: center;
+}
+
+.confession-points {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.confession-point {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    border-left: 3px solid #7877c6;
+}
+
+.confession-point i {
+    color: #4CAF50;
+    font-size: 1.2rem;
+}
+
+.confession-point span {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+}
+
+.proposal-section {
+    margin: 3rem 0;
+    text-align: center;
+}
+
+.proposal-section h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.proposal-section p {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 2rem;
+}
+
+.connection-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.option-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 15px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.option-card:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: #7877c6;
+    transform: translateY(-5px);
+}
+
+.option-card i {
+    font-size: 2rem;
+    color: #7877c6;
+    margin-bottom: 1rem;
+}
+
+.option-card h4 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+.option-card p {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+}
+
+.response-section {
+    margin-top: 3rem;
+}
+
+.response-section h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: white;
+    text-align: center;
+}
+
+.response-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.response-btn {
+    padding: 1.2rem 2rem;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.yes-btn {
+    background: linear-gradient(45deg, #4CAF50, #8BC34A);
+    color: white;
+}
+
+.yes-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(76, 175, 80, 0.5);
+}
+
+.sparkle-effect {
+    position: absolute;
+    animation: sparkleFloat 2s infinite;
+}
+
+@keyframes sparkleFloat {
+    0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.5; }
+    50% { transform: translateY(-20px) rotate(180deg); opacity: 1; }
+}
+
+.maybe-btn {
+    background: linear-gradient(45deg, #FF9800, #FFB74D);
+    color: white;
+}
+
+.maybe-btn:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 20px rgba(255, 152, 0, 0.3);
+}
+
+.friend-btn {
+    background: linear-gradient(45deg, #2196F3, #64B5F6);
+    color: white;
+}
+
+.friend-btn:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 20px rgba(33, 150, 243, 0.3);
+}
+
+.no-pressure {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.6);
+    font-style: italic;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+/* Step 5: Aftermath */
+.aftermath-container {
+    text-align: center;
+}
+
+.aftermath-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    margin: 2rem 0;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.aftermath-message {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 20px;
+    margin: 2rem 0;
+    border: 2px solid #7877c6;
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+.next-steps-guide {
+    margin: 3rem 0;
+}
+
+.next-steps-guide h3 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.steps-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.step-guide {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    text-align: left;
+}
+
+.guide-number {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(45deg, #7877c6, #ff77c6);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    flex-shrink: 0;
+}
+
+.guide-content h4 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+.guide-content p {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.final-thoughts {
+    margin: 3rem 0;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+}
+
+.thought-bubble {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 20px;
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.thought-bubble i {
+    position: absolute;
+    top: -15px;
+    left: 20px;
+    font-size: 2rem;
+    color: #7877c6;
+    background: #0f0c29;
+    padding: 0 10px;
+}
+
+.thought-bubble p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+    font-style: italic;
+}
+
+.signature {
+    font-family: 'Caveat', cursive;
+    font-size: 2rem;
+    color: #7877c6;
+    text-align: right;
+    margin-top: 1rem;
+}
+
+.final-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.action-btn {
+    padding: 1rem 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+}
+
+.action-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+}
+
+/* Navigation Buttons */
+.next-step-btn {
+    padding: 1rem 2.5rem;
+    font-size: 1.2rem;
+    background: linear-gradient(45deg, #7877c6, #ff77c6);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin: 2rem auto;
+    font-weight: 600;
+    box-shadow: 0 5px 20px rgba(120, 119, 198, 0.3);
+}
+
+.next-step-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(120, 119, 198, 0.5);
+}
+
+/* Progress Container */
+.progress-container {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    max-width: 600px;
+    z-index: 100;
+}
+
+.progress-bar {
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #7877c6, #ff77c6);
+    width: 0%;
+    transition: width 0.5s ease;
+}
+
+.step-indicators {
+    display: flex;
+    justify-content: space-between;
+}
+
+.step-indicator {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.step-indicator.active {
+    background: #7877c6;
+    color: white;
+    transform: scale(1.2);
+    box-shadow: 0 0 15px rgba(120, 119, 198, 0.5);
+}
+
+/* Music Control */
+.music-control {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 100;
+}
+
+.music-btn {
+    padding: 0.8rem 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50px;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease
